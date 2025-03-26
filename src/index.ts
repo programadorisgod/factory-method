@@ -1,4 +1,6 @@
 import express, {
+  json,
+  urlencoded,
   type NextFunction,
   type Request,
   type Response,
@@ -11,14 +13,19 @@ import { getControllers } from "./startup/get-controllers.js"
 
 const app = express()
 const PORT = process.env.PORT ?? process.argv[2] ?? 3000
-const { logger } = getControllers()
+const { logger, paymentProcessorRouter } = getControllers()
 
 app.use(helmet())
 app.use(cors())
+app.use(json())
+app.use(urlencoded({ extended: true }))
 app.use(morgan("dev"))
+
 app.get("/ping", (req: Request, res: Response) => {
   res.status(200).json({ msg: "PONG!!!" })
 })
+
+app.use(paymentProcessorRouter)
 
 app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
   console.log(err.stack, err.message)
