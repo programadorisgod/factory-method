@@ -8,12 +8,14 @@ import express, {
 import helmet from "helmet"
 import cors from "cors"
 import morgan from "morgan"
+import dotenv from 'dotenv'
 
 import { getControllers } from "./startup/get-controllers.js"
 
+dotenv.config()
 const app = express()
 const PORT = process.env.PORT ?? process.argv[2] ?? 3000
-const { logger, paymentProcessorRouter } = getControllers()
+const { logger, paymentProcessorRouter, notificationRouter } = getControllers()
 
 app.use(helmet())
 app.use(cors())
@@ -26,6 +28,7 @@ app.get("/ping", (req: Request, res: Response) => {
 })
 
 app.use(paymentProcessorRouter)
+app.use(notificationRouter)
 
 app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
   console.log(err.stack, err.message)

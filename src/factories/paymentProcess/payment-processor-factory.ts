@@ -1,4 +1,4 @@
-import type { PaymentProcessor } from "../interfaces/payment-processor.js"
+import type { PaymentProcessor } from "../../interfaces/payment-processor.js"
 
 export abstract class PaymentProcessorFactory {
   public getPaymentProcessor(): PaymentProcessor {

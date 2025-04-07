@@ -1,0 +1,1 @@
+export type notificationType = "sms" | "wpp" | "email"

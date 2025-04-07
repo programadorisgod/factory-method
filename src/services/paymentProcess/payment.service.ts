@@ -1,8 +1,8 @@
-import { CreditCardFactory } from "../factories/credit-card-factory.js"
-import { DebitCardFactory } from "../factories/debit-card-factory.js"
-import type { PaymentProcessorFactory } from "../factories/payment-processor-factory.js"
-import { PaypalFactory } from "../factories/paypal-factory.js"
-import type { paymentType } from "../types/paymentType.js"
+import { CreditCardFactory } from "../../factories/paymentProcess/credit-card-factory.js"
+import { DebitCardFactory } from "../../factories/paymentProcess/debit-card-factory.js"
+import type { PaymentProcessorFactory } from "../../factories/paymentProcess/payment-processor-factory.js"
+import { PaypalFactory } from "../../factories/paymentProcess/paypal-factory.js"
+import type { paymentType } from "../../types/paymentType.js"
 
 export class PaymentService {
   private paymentProcessorFactory!: PaymentProcessorFactory

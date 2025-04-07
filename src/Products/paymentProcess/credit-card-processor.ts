@@ -1,5 +1,5 @@
-import { Constants } from "../constant/constants.js"
-import type { PaymentProcessor } from "../interfaces/payment-processor.js"
+import { Constants } from "../../constant/constants.js"
+import type { PaymentProcessor } from "../../interfaces/payment-processor.js"
 
 export class CreditCardProcessor implements PaymentProcessor {
   processPayment(amount: number): number {

@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express"
-import type { paymentType } from "../types/paymentType.js"
-import type { PaymentService } from "../services/payment.service.js"
+import type { paymentType } from "../../types/paymentType.js"
+import type { PaymentService } from "../../services/paymentProcess/payment.service.js"
 
 type processPayemtBody = {
   amount: number

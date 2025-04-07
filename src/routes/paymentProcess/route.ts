@@ -1,7 +1,7 @@
 import { Router, type NextFunction, type Request, type Response } from "express"
-import { Constants } from "../constant/constants.js"
-import { AsyncHandler } from "../utils/Handle/handle-async.js"
-import type { PaymentProcessorController } from "../controllers/payementProcessor.js"
+import { Constants } from "../../constant/constants.js"
+import { AsyncHandler } from "../../utils/Handle/handle-async.js"
+import type { PaymentProcessorController } from "../../controllers/paymentProcess/payementProcessor.js"
 
 const router = Router()
 
