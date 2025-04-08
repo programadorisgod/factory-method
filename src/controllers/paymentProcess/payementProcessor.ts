@@ -22,6 +22,6 @@ export class PaymentProcessorController {
       type
     )
 
-    res.status(200).json({ msg: `Final amount: ${paymentProcessed}` })
+    res.status(200).json({ payment: `Final amount: ${paymentProcessed}` })
   }
 }

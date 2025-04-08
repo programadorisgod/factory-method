@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express"
-import type { NotificationService } from "../../services/notification/notification.service.js";
-import type { notificationType } from "../../types/messageType.js";
+import type { NotificationService } from "../../services/notification/notification.service.js"
+import type { notificationType } from "../../types/messageType.js"
 
 type notificationParams = {
   type: notificationType
@@ -21,6 +21,5 @@ export class NotificationController {
     )
 
     res.status(200).json(notificationSent)
-
   }
 }
