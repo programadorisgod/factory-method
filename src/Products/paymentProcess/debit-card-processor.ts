@@ -1,5 +1,6 @@
 import { Constants } from "../../constant/constants.js"
 import type { PaymentProcessor } from "../../interfaces/payment-processor.js"
+import { Invoice } from "../../services/invoice/generateInvoice.service.js"
 
 export class DebitCardProcessor implements PaymentProcessor {
   processPayment(amount: number): number {
@@ -13,7 +14,7 @@ export class DebitCardProcessor implements PaymentProcessor {
     if (amount > 500) {
       finalAmount += 5
     }
-
+    Invoice.generate()
     return finalAmount
   }
 }
