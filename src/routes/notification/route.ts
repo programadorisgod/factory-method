@@ -8,7 +8,7 @@ const router = Router()
 type Controller = { controller: NotificationController }
 
 export const createNotificationRouter = ({ controller }: Controller) => {
-  router.get(
+  router.post(
     `${Constants.BASE_URL}/send-notification/:type`,
     AsyncHandler((req: Request, res: Response, next: NextFunction) => {
       return controller.notifications(req, res, next)

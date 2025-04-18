@@ -1,1 +1,1 @@
-export type notificationType = "sms" | "wpp" | "email"
+export type notificationType = "sms" | "wpp" | "email" | "push"

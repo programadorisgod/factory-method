@@ -1,8 +1,9 @@
-import type { INotification } from "../../interfaces/notification.js";
+import type { INotificationBuilder } from "../../interfaces/notification-builder.js";
+
 export abstract class NotificationFactory{
-  public getNotification(): INotification {
-    const notification = this.createNotification()
+  public getNotification(): INotificationBuilder {
+    const notification = this.createNotificationBuilder()
     return notification
   }
-  public abstract createNotification(): INotification
+  public abstract createNotificationBuilder(): INotificationBuilder
 }

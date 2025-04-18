@@ -1,14 +1,31 @@
 import type { INotification } from "../../interfaces/notification.js";
 import type { resultMessage } from "../../types/notificationType.js";
 import { transporter } from "../../utils/mail/transporter.js";
+import nodemailer from "nodemailer";
 
 export class EmailNotification implements INotification{
-  async sendMessage(message: string): Promise<resultMessage> {
-    const mailOptions = {
+  constructor(
+    private to: string,
+    private subject: string,
+    private body: string,
+    private cc: string[] = [],
+    private bcc: string[] = [],
+    private attachments: string[] = [],
+    private priority: 'high' | 'normal' | 'low' = 'normal'
+  ) {}
+
+  async sendMessage(): Promise<resultMessage> {
+    const mailOptions: nodemailer.SendMailOptions = {
       from: process.env.USER_EMAIL,
-      to: "destinatario@example.com",
-      subject: message,
-      text: "Tu pago ha sido realizado con exito",
+      to: this.to?? "",
+      subject: this.subject?? "",
+      text: this.body?? "", 
+      cc: this.cc?? "",
+      bcc: this.bcc?? "",
+      priority: this.priority?? "",
+      attachments: this.attachments.map((filePath) => ({
+        path: filePath,
+      }))?? "",
     };
   
     try {
@@ -25,7 +42,7 @@ export class EmailNotification implements INotification{
         data: {
             notification: null
         },
-        error: "Have a problem whit wasa"
+        error: "Have a problem whit email"
     }
     }
   }

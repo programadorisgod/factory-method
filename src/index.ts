@@ -13,6 +13,8 @@ import dotenv from 'dotenv'
 import { getControllers } from "./startup/get-controllers.js"
 
 dotenv.config()
+
+
 const app = express()
 const PORT = process.env.PORT ?? process.argv[2] ?? 3000
 const { logger, paymentProcessorRouter, notificationRouter } = getControllers()

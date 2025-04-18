@@ -3,7 +3,17 @@ import type { INotification } from "../../interfaces/notification.js";
 import type { resultMessage } from "../../types/notificationType.js";
 
 export class WhatsAppNotification implements INotification {
-  async sendMessage(message: string): Promise<resultMessage> {
+
+  constructor(
+    private phoneNumber: string,
+    private message: string,
+    private mediaUrl: string,
+    private caption: string,
+    private interactiveButtons: [],
+    private language: string
+  ) {}
+
+  async sendMessage(): Promise<resultMessage> {
     const { ACCOUNT_SID, AUTH_TOKEN, FROM_WHATSAPP, TO_WHATSAPP, CONTENT_SID } = process.env;
     try {
         const client = twilio(ACCOUNT_SID, AUTH_TOKEN);
@@ -25,7 +35,7 @@ export class WhatsAppNotification implements INotification {
                 error: message?.errorMessage
             }
         }
-
+        console.log(`Phone Number: ${this.phoneNumber}, Message: ${this.message}, MediaURL: ${this.mediaUrl}, Caption: ${this.caption}, InteractiveButtons: ${this.interactiveButtons}, Language: ${this.language}`)
         return {
             data: {
                 notification: 'OK'

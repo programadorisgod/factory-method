@@ -16,8 +16,11 @@ export class NotificationController {
   ): Promise<void> {
     const { type } = req.params as notificationParams
 
+    const data = req.body;
+
     const notificationSent = await this.notificationService.sendNotification(
-      type
+      type,
+      data
     )
 
     res.status(200).json(notificationSent)
