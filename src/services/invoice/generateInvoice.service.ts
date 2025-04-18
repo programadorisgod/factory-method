@@ -1,7 +1,7 @@
 import { PDFBuilder } from "../../builders/PDFBuilder.js"
 import { PDFDocumentGenerator } from "../../utils/invoice/PDFDocumentGenerator.js"
-import { Format, Theme } from "../../types/enums.js"
 import type { PDFData } from "../../types/PDFData.js"
+import crypto from "node:crypto"
 
 export class Invoice {
   public static generate(PDFData: PDFData): void {
