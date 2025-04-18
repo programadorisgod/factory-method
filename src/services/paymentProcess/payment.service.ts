@@ -3,6 +3,7 @@ import { DebitCardFactory } from "../../factories/paymentProcess/debit-card-fact
 import type { PaymentProcessorFactory } from "../../factories/paymentProcess/payment-processor-factory.js"
 import { PaypalFactory } from "../../factories/paymentProcess/paypal-factory.js"
 import type { paymentType } from "../../types/paymentType.js"
+import type { PDFData } from "../../types/PDFData.js"
 
 export class PaymentService {
   private paymentProcessorFactory!: PaymentProcessorFactory
@@ -14,12 +15,16 @@ export class PaymentService {
       ["paypal", new PaypalFactory()],
     ])
 
-  public processPayment(amount: number, type: paymentType): number {
+  public processPayment(
+    amount: number,
+    type: paymentType,
+    pdfData: PDFData
+  ): number {
     this.configureFactory(type)
 
     const process = this.paymentProcessorFactory.getPaymentProcessor()
 
-    return process.processPayment(amount)
+    return process.processPayment(amount, pdfData)
   }
 
   private configureFactory(type: paymentType): void {

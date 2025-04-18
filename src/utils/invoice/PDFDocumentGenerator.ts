@@ -26,13 +26,10 @@ export class PDFDocumentGenerator {
     const startX = 100;
 
     if (this.options.theme === Theme.DARK) {
-      // Fondo oscuro
       doc.rect(0, 0, doc.page.width, doc.page.height).fill("#1e1e1e");
 
-      // Luego, volvemos a blanco para el texto
       doc.fillColor("white");
     } else {
-      // (opcional) fondo blanco explícito
       doc.rect(0, 0, doc.page.width, doc.page.height).fill("#ffffff");
 
       doc.fillColor("black");

@@ -8,3 +8,5 @@
 2025-04-07 19:37:16 [31merror[39m: Error - route GET//api/v1/send-notification/smg
 2025-04-17 21:18:02 [31merror[39m: Error - route POST//api/v1/send-notification/wpp
 2025-04-17 22:12:59 [31merror[39m: Error - route PUT//api/v1/payment-processor
+2025-04-18 08:17:05 [31merror[39m: Error - route PUT//api/v1/payment-processor
+2025-04-18 08:17:43 [31merror[39m: Error - route PUT//api/v1/payment-processor
